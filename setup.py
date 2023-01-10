@@ -7,7 +7,7 @@ setuptools.setup(
     description="general utility package for TlF molecular calculations used in the CeNTREX experiment",
     url="https://github.com/",
     packages=setuptools.find_packages(),
-    install_requires=["numpy","scipy", "sympy>=1.9", "tqdm", "julia", "rich"],
+    install_requires=["numpy","scipy", "sympy>=1.9", "tqdm", "rich"],
     data_files=[
         (
             "centrex_TlF/pre_calculated",

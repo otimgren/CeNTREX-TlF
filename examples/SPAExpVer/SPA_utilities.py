@@ -2,11 +2,12 @@
 Convenience functions for SPA simulations.
 """
 
-import centrex_TlF as centrex
 import numpy as np
 import pandas as pd
 from scipy.stats import sem
 from tqdm.notebook import tqdm
+
+import centrex_TlF as centrex
 
 
 def run_traj_ensemble_simulation(df_traj: pd.DataFrame, odepars, obe_system, exc, rho, transition_name,
@@ -24,7 +25,7 @@ def run_traj_ensemble_simulation(df_traj: pd.DataFrame, odepars, obe_system, exc
 
     # Function that gets the output
     output_func = centrex.lindblad.setup_state_integral_calculation(
-                    states = exc[0].get_indices(obe_system.QN, mode = "julia"),
+                    states = exc[0].get_indices(obe_system.QN, mode = "python"),
                     nphotons = True
                 )
 

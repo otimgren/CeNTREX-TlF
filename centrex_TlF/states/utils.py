@@ -269,8 +269,6 @@ def get_indices_quantumnumbers_base(
 
     if mode == "python":
         return np.where(mask)[0]
-    elif mode == "julia":
-        return np.where(mask)[0] + 1
 
 
 def get_indices_quantumnumbers(
