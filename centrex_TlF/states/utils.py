@@ -4,9 +4,10 @@ from itertools import product
 from typing import List, SupportsFloat, Union
 
 import numpy as np
-from centrex_TlF.hamiltonian.utils import reorder_evecs
-from centrex_TlF.states.states import CoupledBasisState, State
 from sympy.physics.quantum.cg import CG
+
+# from ..hamiltonian.utils import reorder_evecs
+from ..states.states import CoupledBasisState, State
 
 __all__ = [
     "find_state_idx_from_state",
@@ -30,6 +31,28 @@ def CGc(j1, m1, j2, m2, j3, m3):
 
 def parity_X(J):
     return (-1) ** J
+
+def reorder_evecs(V_in, E_in, V_ref):
+    """Reshuffle eigenvectors and eigenergies based on a reference
+
+    Args:
+        V_in (np.ndarray): eigenvector matrix to be reorganized
+        E_in (np.ndarray): energy vector to be reorganized
+        V_ref (np.ndarray): reference eigenvector matrix
+
+    Returns:
+        (np.ndarray, np.ndarray): energy vector, eigenvector matrix
+    """
+    # take dot product between each eigenvector in V and state_vec
+    overlap_vectors = np.absolute(np.matmul(np.conj(V_in.T), V_ref))
+
+    # find which state has the largest overlap:
+    index = np.argsort(np.argmax(overlap_vectors, axis=1))
+    # store energy and state
+    E_out = E_in[index]
+    V_out = V_in[:, index]
+
+    return E_out, V_out
 
 
 def find_states_idxs_from_states(H, reference_states, QN, V_ref=None):

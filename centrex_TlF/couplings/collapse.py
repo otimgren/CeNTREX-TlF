@@ -1,10 +1,10 @@
 import copy
 
 import numpy as np
-from centrex_TlF.couplings.branching import calculate_BR
-from centrex_TlF.couplings.utils_compact import compact_C_array, compact_C_array_indices
-from centrex_TlF.states.utils import QuantumSelector, get_indices_quantumnumbers
-from centrex_TlF.states.utils_compact import compact_QN_coupled_indices
+from ..couplings.branching import calculate_BR
+from ..couplings.utils_compact import compact_C_array, compact_C_array_indices
+from ..states.utils import QuantumSelector, get_indices_quantumnumbers
+from ..states.utils_compact import compact_QN_coupled_indices
 from tqdm import tqdm
 
 __all__ = ["collapse_matrices"]

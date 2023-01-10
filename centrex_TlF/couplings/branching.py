@@ -1,5 +1,6 @@
 import numpy as np
-from centrex_TlF.couplings.matrix_elements import generate_ED_ME_mixed_state
+
+from ..couplings.matrix_elements import generate_ED_ME_mixed_state
 
 __all__ = ["calculate_BR"]
 
